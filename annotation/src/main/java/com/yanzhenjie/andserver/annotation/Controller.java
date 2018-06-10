@@ -1,5 +1,5 @@
 /*
- * Copyright © 2017 Yan Zhenjie.
+ * Copyright 2018 Yan Zhenjie.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,24 +13,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.yanzhenjie.andserver.protocol;
+package com.yanzhenjie.andserver.annotation;
 
-import org.apache.httpcore.HttpException;
-import org.apache.httpcore.HttpRequest;
-
-import java.io.IOException;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
 
 /**
- * Created by YanZhenjie on 2017/12/22.
+ * Created by YanZhenjie on 2018/6/3.
  */
-public interface ETag {
-
-    /**
-     * Generate an {@code ETag} for the current Request.
-     *
-     * @param request current HTTP request.
-     * @return eTag value.
-     */
-    String getETag(HttpRequest request) throws HttpException, IOException;
-
-}
+@Target({ElementType.TYPE})
+@Retention(RetentionPolicy.SOURCE)
+public @interface Controller {}

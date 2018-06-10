@@ -1,5 +1,5 @@
 /*
- * Copyright © 2017 Yan Zhenjie.
+ * Copyright 2018 Yan Zhenjie.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,18 +13,22 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.yanzhenjie.andserver;
-
-import android.text.TextUtils;
+package com.yanzhenjie.andserver.annotation;
 
 import java.util.Locale;
 
 /**
- * Created by YanZhenjie on 2017/12/19.
+ * Created by Yan Zhenjie on 2018/6/3.
  */
 public enum RequestMethod {
-
-    GET("GET"), HEAD("HEAD"), POST("POST"), PUT("PUT"), PATCH("PATCH"), DELETE("DELETE"), OPTIONS("OPTIONS"), TRACE("TRACE");
+    GET("GET"),
+    HEAD("HEAD"),
+    POST("POST"),
+    PUT("PUT"),
+    PATCH("PATCH"),
+    DELETE("DELETE"),
+    OPTIONS("OPTIONS"),
+    TRACE("TRACE");
 
     private String method;
 
@@ -38,6 +42,8 @@ public enum RequestMethod {
 
     /**
      * Whether to allow the body to be transmitted.
+     *
+     * @return true, otherwise is false.
      */
     public boolean allowRequestBody() {
         switch (this) {
@@ -51,9 +57,14 @@ public enum RequestMethod {
         }
     }
 
+    /**
+     * Reverse the text for the request method.
+     *
+     * @param method method text, such as: GET, POST.
+     *
+     * @return {@link RequestMethod}.
+     */
     public static RequestMethod reverse(String method) {
-        if (TextUtils.isEmpty(method)) return GET;
-
         method = method.toUpperCase(Locale.ENGLISH);
         switch (method) {
             case "GET": {

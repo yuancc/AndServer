@@ -1,5 +1,5 @@
 /*
- * Copyright © 2017 Yan Zhenjie.
+ * Copyright 2018 Yan Zhenjie.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -13,24 +13,19 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.yanzhenjie.andserver.view;
-
-import org.apache.httpcore.HttpEntity;
+package com.yanzhenjie.andserver.annotation.util;
 
 /**
- * Created by YanZhenjie on 2017/12/22.
+ * Created by YanZhenjie on 2018/6/9.
  */
-public class OkView extends View {
+public interface Constants {
 
-    public OkView() {
-        super(200);
-    }
+    /**
+     * The default null value.
+     *
+     * <p>This is an artificial arrangement of 16 unicode characters, with its sole purpose being to never
+     * match user-declared values.
+     */
+    String DEFAULT_NONE = "\n\t\t\n\t\t\n\uE000\uE001\uE002\n\t\t\t\t\n";
 
-    public OkView(String httpBody) {
-        super(200, httpBody);
-    }
-
-    public OkView(HttpEntity httpEntity) {
-        super(200, httpEntity);
-    }
 }
